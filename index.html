@@ -13,7 +13,7 @@
             text-align: center;
         }
         .container {
-            max-width: 800px;
+            max-width: 90%;
             margin: auto;
             background: white;
             padding: 20px;
@@ -22,7 +22,7 @@
         }
         .pledge {
             margin: 10px 0;
-            padding: 15px;
+            padding: 2vw;
             border: 1px solid #ddd;
             border-radius: 5px;
             cursor: pointer;
@@ -31,6 +31,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            font-size: clamp(14px, 2vw, 18px);
             position: relative;
         }
         .pledge:hover {
@@ -41,14 +42,14 @@
             transform: scale(1.05);
         }
         .checkmark {
-            width: 20px;
-            height: 20px;
+            width: clamp(16px, 2vw, 24px);
+            height: clamp(16px, 2vw, 24px);
             background-color: #4caf50;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 16px;
+            font-size: clamp(12px, 1.5vw, 16px);
             color: white;
             font-weight: bold;
             visibility: hidden;
