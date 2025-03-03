@@ -13,7 +13,7 @@
             text-align: center;
         }
         .container {
-            max-width: 95%;
+            max-width: 90%;
             margin: auto;
             background: white;
             padding: 20px;
@@ -29,10 +29,12 @@
             background-color: #fff;
             transition: transform 0.2s ease-in-out, background-color 0.3s;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: space-between;
             font-size: clamp(14px, 2vw, 18px);
             position: relative;
+            text-align: left;
         }
         .pledge:hover {
             background-color: #e0f7fa;
@@ -59,6 +61,10 @@
             visibility: visible;
             transform: scale(1.3);
         }
+        .pledge-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
     </style>
 </head>
 <body>
@@ -70,30 +76,30 @@
     
     <script>
         const pledges = [
-            "No Poverty: I pledge to participate in outreach programs, donate pre-loved clothes and school supplies, and support small businesses like sari-sari stores and local vendors.",
-            "Zero Hunger: I pledge to only take food that I can finish and finish food that I take.",
-            "Good Health and Well-being: I pledge to prioritize my mental and physical health by committing to healthy habits and hygiene.",
-            "Quality Education: I pledge to support education by sharing knowledge and donating learning materials to local schools.",
-            "Gender Equality: I pledge to treat all people with respect, unlearn cultural gender biases, and promote inclusivity.",
-            "Clean Water and Sanitation: I pledge to conserve and save water by supporting facilities that use recycled water, take shorter baths, and use only water when needed.",
-            "Affordable and Clean Energy: I pledge to reduce my energy consumption by only using appliances and lights when necessary, and turning them off whenever not being used.",
-            "Industry, Innovation, and Infrastructure: I pledge to support fair labor by choosing ethical brands, consider freelancing or side hustles to develop skills, and promote financial literacy among my peers.",
-            "Reduced Inequalities: I pledge to engage in projects that promote technology for social good, advocate for better public transportation, and support innovative local startups.",
-            "Sustainable Cities and Communities: I pledge to treat everyone fairly, amplify the voices of marginalized groups, and support student-led initiatives that fight discrimination and promote inclusivity.",
-            "Responsible Consumption and Production: I pledge to bike, walk, or use public transport like jeepneys, train, or buses whenever possible and join tree-planting or urban gardening activities.",
-            "Climate Action: I pledge to join environmental movements, participate in tree-planting activities, and reduce my carbon footprint by conserving energy and using eco-friendly products.",
-            "Life Below Water: I pledge to reduce plastic waste, avoid using sachets whenever possible, and support campaigns that protect Philippine marine life.",
-            "Life on Land: I pledge to support local farmers by buying from markets or farm-to-table sellers, avoid products that harm wildlife, and plant trees in my community.",
-            "Peace, Justice, and Strong Institutions: I pledge to educate myself on national issues, exercise my right to vote wisely, and speak up against corruption and injustices in my community.",
-            "Partnerships for the Goals: I pledge to collaborate with student organizations, participate in community projects, and use my social media platforms to promote SDG initiatives."
+            { title: "No Poverty", text: "I pledge to participate in outreach programs, donate pre-loved clothes and school supplies, and support small businesses like sari-sari stores and local vendors." },
+            { title: "Zero Hunger", text: "I pledge to only take food that I can finish and finish food that I take." },
+            { title: "Good Health and Well-being", text: "I pledge to prioritize my mental and physical health by committing to healthy habits and hygiene." },
+            { title: "Quality Education", text: "I pledge to support education by sharing knowledge and donating learning materials to local schools." },
+            { title: "Gender Equality", text: "I pledge to treat all people with respect, unlearn cultural gender biases, and promote inclusivity." },
+            { title: "Clean Water and Sanitation", text: "I pledge to conserve and save water by supporting facilities that use recycled water, take shorter baths, and use only water when needed." },
+            { title: "Affordable and Clean Energy", text: "I pledge to reduce my energy consumption by only using appliances and lights when necessary, and turning them off whenever not being used." },
+            { title: "Industry, Innovation, and Infrastructure", text: "I pledge to support fair labor by choosing ethical brands, consider freelancing or side hustles to develop skills, and promote financial literacy among my peers." },
+            { title: "Reduced Inequalities", text: "I pledge to engage in projects that promote technology for social good, advocate for better public transportation, and support innovative local startups." },
+            { title: "Sustainable Cities and Communities", text: "I pledge to treat everyone fairly, amplify the voices of marginalized groups, and support student-led initiatives that fight discrimination and promote inclusivity." },
+            { title: "Responsible Consumption and Production", text: "I pledge to bike, walk, or use public transport like jeepneys, train, or buses whenever possible and join tree-planting or urban gardening activities." },
+            { title: "Climate Action", text: "I pledge to join environmental movements, participate in tree-planting activities, and reduce my carbon footprint by conserving energy and using eco-friendly products." },
+            { title: "Life Below Water", text: "I pledge to reduce plastic waste, avoid using sachets whenever possible, and support campaigns that protect Philippine marine life." },
+            { title: "Life on Land", text: "I pledge to support local farmers by buying from markets or farm-to-table sellers, avoid products that harm wildlife, and plant trees in my community." },
+            { title: "Peace, Justice, and Strong Institutions", text: "I pledge to educate myself on national issues, exercise my right to vote wisely, and speak up against corruption and injustices in my community." },
+            { title: "Partnerships for the Goals", text: "I pledge to collaborate with student organizations, participate in community projects, and use my social media platforms to promote SDG initiatives." }
         ];
 
         const pledgeContainer = document.getElementById("pledges");
 
-        pledges.forEach((text, index) => {
+        pledges.forEach((pledge, index) => {
             const div = document.createElement("div");
             div.classList.add("pledge");
-            div.innerHTML = `<span>${text}</span> <div class='checkmark'>✔</div>`;
+            div.innerHTML = `<div class='pledge-title'>${pledge.title}</div><span>${pledge.text}</span> <div class='checkmark'>✔</div>`;
             div.addEventListener("click", () => {
                 div.classList.toggle("checked");
             });
